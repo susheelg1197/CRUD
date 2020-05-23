@@ -33,5 +33,11 @@ func InitConn() {
 
 //Function to return a collection
 func Collection() *mongo.Collection {
-	return Mongoclient.Database("").Collection("")
+	return Mongoclient.Database("BloodBank").Collection("UserDetails")
+}
+
+//Function to return a context
+func GetContext() context.Context {
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	return ctx
 }

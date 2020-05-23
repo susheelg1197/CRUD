@@ -1,8 +1,8 @@
 package main
 
 import (
-	conn "Crud-App/server/conn"
-	middleware "Crud-App/server/middleware"
+	conn "CRUD/server/conn"
+	middleware "CRUD/server/middleware"
 	"net/http"
 
 	"github.com/gin-contrib/cors"

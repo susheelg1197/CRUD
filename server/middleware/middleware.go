@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	routes "Crud-App/server/routes"
+	routes "CRUD/server/routes"
 	"fmt"
 
 	"github.com/gin-contrib/cors"
