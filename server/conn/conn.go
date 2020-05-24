@@ -12,9 +12,9 @@ import (
 
 var Mongoclient *mongo.Client
 
-//Function to init Connection for database
+//Function to init Connection for databasemongodb+srv://
 func InitConn() {
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://m001-student:m001-mongodb-basics@sandbox-shard-00-02-kjj8q.mongodb.net:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=true"))
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://m001-student:susheel@sandbox-shard-00-02-kjj8q.mongodb.net:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=true"))
 	if err != nil {
 		log.Fatal(err)
 	}

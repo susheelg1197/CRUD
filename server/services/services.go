@@ -59,3 +59,14 @@ func UpdateUsers(user models.UserDetails) {
 		log.Printf("inserted a new document with ID %v\n", result.UpsertedID)
 	}
 }
+
+func DeleteUsers(user models.UserDetails) {
+	filter := bson.D{{"firstname", user.FirstName}}
+	result, err := conn.Collection().DeleteOne(conn.GetContext(), filter)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if result.DeletedCount != 0 {
+		log.Printf("Deleted a new document with ID %v\n", result)
+	}
+}

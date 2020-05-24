@@ -32,3 +32,12 @@ func UpdateUserDetails() gin.HandlerFunc {
 		c.JSON(http.StatusOK, "Successfull")
 	}
 }
+
+func DeleteUserDetails() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		requestBody := models.UserDetails{}
+		c.Bind(&requestBody)
+		services.DeleteUsers(requestBody)
+		c.JSON(http.StatusOK, "Successfull")
+	}
+}
