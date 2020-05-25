@@ -3,6 +3,8 @@ package main
 import (
 	conn "CRUD/server/conn"
 	middleware "CRUD/server/middleware"
+	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gin-contrib/cors"
@@ -28,6 +30,21 @@ func startServer() {
 		Addr:    ":8787",
 		Handler: router,
 	}
+	router.POST("/one/:formNo", func(c *gin.Context) {
+		// single file
+		formNo := c.Param("formNo")
+		file, err := c.FormFile("file")
+		if err != nil {
+			log.Fatal(err)
+		}
+		log.Println(file.Filename)
+		err = c.SaveUploadedFile(file, "file/profilePictures/"+formNo+".png")
+		if err != nil {
+			log.Fatal(err)
+		}
+		c.String(http.StatusOK, fmt.Sprintf("'%s' uploaded!", file.Filename))
+	})
+	router.Static("/file/profilePictures", "./file/profilePictures")
 	s.ListenAndServe()
 }
 
