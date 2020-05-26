@@ -58,7 +58,7 @@ export default {
     return {
       formNo: this.$route.params.formNo,
       file: "",
-      currentUrl: "http://localhost:8787/file/profilePictures/avatar.jpg",
+      currentUrl: "https://gentle-bayou-82093.herokuapp.com/file/profilePictures/avatar.jpg",
     };
   },
 
@@ -66,10 +66,10 @@ export default {
     confirmUpload(){
       var data={
         formNo:this.formNo,
-        imageUrl:"http://localhost:8787/file/profilePictures/"+this.formNo+".png"
+        imageUrl:"https://gentle-bayou-82093.herokuapp.com/file/profilePictures/"+this.formNo+".png"
       }
       axios
-      .post("http://localhost:8787/o/blood-bank/update-document-upload",data)
+      .post("https://gentle-bayou-82093.herokuapp.com/o/blood-bank/update-document-upload",data)
         .then(function() {
           console.log("SUCCESS!!");
         })
@@ -82,7 +82,7 @@ export default {
       console.log(this.file);
       formData.append("file", this.file);
       axios
-        .post("http://localhost:8787/one/" + this.formNo, formData, {
+        .post("https://gentle-bayou-82093.herokuapp.com/one/" + this.formNo, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

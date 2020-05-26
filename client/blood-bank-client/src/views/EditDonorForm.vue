@@ -239,15 +239,16 @@ export default {
           }
           console.log(data)
         axios
-      .post('http://localhost:8787/o/blood-bank/update-user-details',data)
+      .post('https://gentle-bayou-82093.herokuapp.com/o/blood-bank/update-user-details',data)
       .then(response => {
+          console.log(response.data)
           this.$router.push('/')
       })
       }
   },
    created() {
        var bloodObj ={}
-    axios.get('http://localhost:8787/o/blood-bank/show-details')
+    axios.get('https://gentle-bayou-82093.herokuapp.com/o/blood-bank/show-details')
         .then((response) => {
                 this.bloodDetails = response.data;
                 bloodObj=response.data.filter(a=>a.formNo===this.$route.params.formNo)[0]

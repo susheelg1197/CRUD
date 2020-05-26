@@ -17,7 +17,8 @@
           <tbody>
             <tr v-for="(blood,index) in bloodDetails" :key="index">
               <th>{{index+1}}</th>
-              <td>{{blood.firstName+' '}}{{blood.lastName}}</td>
+              <td><img v-if="blood.imageUrl" :src="blood.imageUrl" alt="Avatar" class="avatar mr-2">
+              <img v-else src="https://gentle-bayou-82093.herokuapp.com/file/profilePictures/avatar.jpg" alt="Avatar" class="avatar mr-2">{{blood.firstName+' '}}{{blood.lastName}}</td>
               <td>{{blood.bloodGroup}}</td>
               <td>{{blood.email}}</td>
               <td>
@@ -25,7 +26,7 @@
            <b-icon-trash class="ml-4" @click="deleteInfo(blood)"></b-icon-trash>
           </td>
           <td><button v-if="!blood.isVerified" type="button" class="btn btn-link" @click="verify(blood)">click here</button>
-          <span v-else class="badge badge-primary ml-3">Verified</span>
+          <span v-else class="badge badge-primary ml-1">Verified</span>
            </td>
             </tr>
           </tbody>
@@ -66,7 +67,7 @@ export default {
       })
     },
     getDetails(){
-      axios.get('http://localhost:8787/o/blood-bank/show-details')
+      axios.get('https://gentle-bayou-82093.herokuapp.com/o/blood-bank/show-details')
         .then((response) => {
                 this.bloodDetails = response.data;
                 });
@@ -75,7 +76,7 @@ export default {
       var data={
         formNo:blood.formNo
       }
-           axios.post('http://localhost:8787/o/blood-bank/delete-user-details',data)
+           axios.post('https://gentle-bayou-82093.herokuapp.com/o/blood-bank/delete-user-details',data)
             .then((response) => {
                 console.log(response.data)
                 });
@@ -92,7 +93,7 @@ export default {
     }
   },
   created() {
-    axios.get('http://localhost:8787/o/blood-bank/show-details')
+    axios.get('https://gentle-bayou-82093.herokuapp.com/o/blood-bank/show-details')
         .then((response) => {
                 this.bloodDetails = response.data;
                 });
@@ -100,6 +101,12 @@ export default {
 }
 </script>
 <style>
+.avatar {
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
 .hero {
   height: 90vh;
   display: flex;
