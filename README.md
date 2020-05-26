@@ -11,3 +11,7 @@ Vue.js client is now deployed in zeit
 
 # MongoDB's Atlas
 A free tier sandbox shard from mongodb atlas is used as a database.
+
+## Steps To Use 
+- Clone the project
+> git clone https://github.com/susheelg1197/CRUD.git
