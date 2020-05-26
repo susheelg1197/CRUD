@@ -72,6 +72,7 @@ export default {
       .post("https://gentle-bayou-82093.herokuapp.com/o/blood-bank/update-document-upload",data)
         .then(function() {
           console.log("SUCCESS!!");
+          this.$router.push('/')
         })
         .catch(function() {
           console.log("FAILURE!!");
