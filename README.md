@@ -19,4 +19,5 @@ A free tier sandbox shard from mongodb atlas is used as a database.
 ### For Client 
 - Inside the blood-bank-client directory run following commands,
 > npm install
+>
 > npm run serve
